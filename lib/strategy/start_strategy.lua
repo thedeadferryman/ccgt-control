@@ -178,9 +178,9 @@ function StartStrategy:tickStartupStuck()
         return 'gas_startup_stuck'
     end
 
-    if ((gas1:getState().fuelLevel.fluid.amount <
+    if ((gas1:getState().fuelLevel.amount <
         gas1:getState().fuelLevel.capacity) and
-        (gas2:getState().fuelLevel.fluid.amount <
+        (gas2:getState().fuelLevel.amount <
             gas2:getState().fuelLevel.capacity)) then
         return 'gas_before_running'
     end
@@ -209,9 +209,9 @@ end
 function StartStrategy:tickRefuel()
     local gas1, gas2, _, _, _, fuel = self:unpackModels()
 
-    if ((gas1:getState().fuelLevel.fluid.amount >=
+    if ((gas1:getState().fuelLevel.amount >=
         gas1:getState().fuelLevel.capacity) or
-        (gas2:getState().fuelLevel.fluid.amount >=
+        (gas2:getState().fuelLevel.amount >=
             gas2:getState().fuelLevel.capacity)) then
         fuel:toggleEjector(false)
         return 'idle'
@@ -227,8 +227,8 @@ function StartStrategy:tickIdle()
 
     local gas1state, gas2state = gas1:getState(), gas2:getState()
 
-    if ((gas1state.fuelLevel.fluid.amount < gas1state.fuelLevel.capacity) or
-        (gas2state.fuelLevel.fluid.amount < gas2state.fuelLevel.capacity)) then
+    if ((gas1state.fuelLevel.amount < gas1state.fuelLevel.capacity) or
+        (gas2state.fuelLevel.amount < gas2state.fuelLevel.capacity)) then
         return 'refuel'
     end
 

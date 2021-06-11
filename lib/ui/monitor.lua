@@ -299,7 +299,7 @@ end
 local function MonitorGUI()
     local app = gui.application()
 
-    app:addChild(gui.panel(1, 1, app.width, app.height, 0x444466))
+    app:addChild(gui.panel(1, 1, app.width, app.height, 0x000000))
 
     local root = app:addChild(gui.layout(1, 1, app.width, app.height, 1, 2))
 

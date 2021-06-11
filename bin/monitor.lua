@@ -91,7 +91,7 @@ local function updateGasData(gasCell, model)
     gasCell.fields.state.colors.text = gasState.color
 
     gasCell.fields.rpm.text = tostring(state.rotorSpeed) .. " RPM"
-    gasCell.fields.rpm.colors.text = (state.rotorSpeed > 9000) and 0x00ff00 or
+    gasCell.fields.rpm.colors.text = (state.rotorSpeed > 900) and 0x00ff00 or
                                          0xff0000
 
     gasCell.fields.burnup.text = state.burnup and 'BURNUP' or 'NO BURNUP'
@@ -110,14 +110,14 @@ local function updateBoilerData(boilCell, model)
     boilCell.fields.heat.colors.text = (state.heat > 6000) and 0x00ff00 or
                                            0xff0000
 
-    boilCell.fields.water.text = tostring(state.waterLevel.fluid.amount) ..
+    boilCell.fields.water.text = tostring(state.waterLevel.amount) ..
                                      ' mB'
-    boilCell.fields.water.colors.text = (state.waterLevel.fluid.amount >
+    boilCell.fields.water.colors.text = (state.waterLevel.amount >
                                             state.waterLevel.capacity / 2) and
                                             0x00ff00 or 0xff0000
 
-    boilCell.fields.fuel.text = tostring(state.fuelLevel.fluid.amount) .. ' mB'
-    boilCell.fields.fuel.colors.text = (state.fuelLevel.fluid.amount >
+    boilCell.fields.fuel.text = tostring(state.fuelLevel.amount) .. ' mB'
+    boilCell.fields.fuel.colors.text = (state.fuelLevel.amount >
                                            state.waterLevel.capacity / 2) and
                                            0x00ff00 or 0xff0000
 end
@@ -135,10 +135,10 @@ local function updateSteamData(steamCell, model)
     steamCell.fields.rpm.colors.text = (state.speed > 900) and 0x00ff00 or
                                            0xff0000
 
-    steamCell.fields.steam.text = tostring(state.steamLevel.fluid.amount) ..
+    steamCell.fields.steam.text = tostring(state.steamLevel.amount) ..
                                       ' mB'
     steamCell.fields.steam.colors.text =
-        (state.steamLevel.fluid.amount > state.steamLevel.capacity / 2) and
+        (state.steamLevel.amount > state.steamLevel.capacity / 2) and
             0x00ff00 or 0xff0000
 end
 
