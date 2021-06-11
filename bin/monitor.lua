@@ -197,13 +197,13 @@ local function runMonitor(args)
     gui.buttons.start.onTouch = function()
         if currentStrategy ~= nil then return nil end
 
-        currentStrategy = StartStrategy:new()
+        currentStrategy = StartStrategy:new(hmodel)
 
         currentStrategy:init()
     end
 
     gui.buttons.stop.onTouch = function()
-        currentStrategy = StopStrategy:new()
+        currentStrategy = StopStrategy:new(hmodel)
 
         currentStrategy:init()
     end
