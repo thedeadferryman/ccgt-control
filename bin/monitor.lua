@@ -194,7 +194,7 @@ local function runMonitor(args)
         if currentStrategy.finished then currentStrategy = nil end
 
         currentStrategy:tick()
-    end)
+    end, math.huge)
 
     gui.buttons.start.onTouch = function()
         if currentStrategy ~= nil then return nil end
@@ -205,8 +205,6 @@ local function runMonitor(args)
     end
 
     gui.buttons.stop.onTouch = function()
-        if currentStrategy ~= nil then return nil end
-
         currentStrategy = StopStrategy:new()
 
         currentStrategy:init()
