@@ -39,7 +39,7 @@ Max-tier computer is highly recommended since dashboard rendering takes many com
 3. Link the `lib` folder to the library search path (I recommend making a symlink (or just copying) to `/home/lib`).
    - Note that there shouldn't be `lib/lib` in the path, e.g. for `/home/lib` and `windowed_list.lua` the path should be `/home/lib/windowed_list.lua`.
 4. Create a Mechina profile using `bin/configure.lua` (you will see a GUI where you will be able to select component addresses and tweak some other parameters related to components).
-5. To run the dashboard, use `bin/configure.lua`.
+5. To run the dashboard, use `bin/monitor.lua`.
 6. Congrats, you're there!
 
 ## TODOs
