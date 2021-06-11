@@ -47,7 +47,7 @@ local function addChartValue(chart, value)
 
     wnd:push(value)
 
-    local newValues = {}
+    local newValues = {{0, 0}} -- Force chart range
 
     for i = 1, #wnd do table.insert(newValues, {i, wnd[i]}) end
 
@@ -110,8 +110,7 @@ local function updateBoilerData(boilCell, model)
     boilCell.fields.heat.colors.text = (state.heat > 6000) and 0x00ff00 or
                                            0xff0000
 
-    boilCell.fields.water.text = tostring(state.waterLevel.amount) ..
-                                     ' mB'
+    boilCell.fields.water.text = tostring(state.waterLevel.amount) .. ' mB'
     boilCell.fields.water.colors.text = (state.waterLevel.amount >
                                             state.waterLevel.capacity / 2) and
                                             0x00ff00 or 0xff0000
@@ -135,11 +134,10 @@ local function updateSteamData(steamCell, model)
     steamCell.fields.rpm.colors.text = (state.speed > 900) and 0x00ff00 or
                                            0xff0000
 
-    steamCell.fields.steam.text = tostring(state.steamLevel.amount) ..
-                                      ' mB'
+    steamCell.fields.steam.text = tostring(state.steamLevel.amount) .. ' mB'
     steamCell.fields.steam.colors.text =
-        (state.steamLevel.amount > state.steamLevel.capacity / 2) and
-            0x00ff00 or 0xff0000
+        (state.steamLevel.amount > state.steamLevel.capacity / 2) and 0x00ff00 or
+            0xff0000
 end
 
 local function updateFuelData(fuelCell, model)
