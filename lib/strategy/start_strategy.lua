@@ -137,7 +137,7 @@ function StartStrategy:tickWaitFuel()
 end
 
 function StartStrategy:tickGasRunning()
-    self._stageTimer = 50
+    self._stageTimer = 100
 
     return 'boil_wait_fuel'
 end
@@ -158,7 +158,7 @@ function StartStrategy:tickBeforeRunning()
 
     fuel:toggleEjector(true)
 
-    if (gas1state.startup or gas2state.startup) then
+    if (gas1state.starter or gas2state.starter) then
         gas1:toggleStarter(false)
         gas2:toggleStarter(false)
     end
@@ -204,20 +204,22 @@ function StartStrategy:tickStartup()
         (gas2state.rotorSpeed >= GasTurbine.STUCK_SPEED)) then
         return 'gas_startup_stuck'
     end
+
+    return 'gas_startup'
 end
 
 function StartStrategy:tickRefuel()
     local gas1, gas2, _, _, _, fuel = self:unpackModels()
 
     if ((gas1:getState().fuelLevel.amount >=
-        gas1:getState().fuelLevel.capacity) or
+        gas1:getState().fuelLevel.capacity) and
         (gas2:getState().fuelLevel.amount >=
             gas2:getState().fuelLevel.capacity)) then
         fuel:toggleEjector(false)
         return 'idle'
     end
 
-    if not fuel:isEjecting() then fuel:toggleEjector(true) end
+    if not fuel:getState().isEjecting then fuel:toggleEjector(true) end
 
     return 'refuel'
 end
@@ -233,11 +235,13 @@ function StartStrategy:tickIdle()
     end
 
     if not (gas1state.enabled and gas2state.enabled) then
-        gas1state:toggleEnabled(true)
-        gas2state:toggleEnabled(true)
+        gas1:toggleEnabled(true)
+        gas2:toggleEnabled(true)
 
         return 'idle'
     end
 
     return 'gas_startup'
 end
+
+return StartStrategy
