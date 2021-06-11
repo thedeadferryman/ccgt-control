@@ -28,3 +28,20 @@ end
 function StopStrategy:tick()
     -- noop
 end
+
+function StopStrategy:unpackModels()
+    local models = self._hypermodel.models
+
+    local gas1 = models['GAS-1']
+    local gas2 = models['GAS-2']
+
+    local boil1 = models['BOIL-1']
+    local boil2 = models['BOIL-2']
+
+    local steam = models['STEAM']
+    local fuel = models['FUEL']
+
+    return gas1, gas2, boil1, boil2, steam, fuel
+end
+
+return StopStrategy

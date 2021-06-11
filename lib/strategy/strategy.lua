@@ -3,7 +3,7 @@ local class = require('lua-objects')
 local Strategy = class(nil, {name = 'Mechina.Strategy'})
 
 function Strategy:__new__(hypermodel)
-    self._hmodel = hypermodel
+    self._hypermodel = hypermodel
     self._finished = false
 end
 
@@ -16,3 +16,5 @@ function Strategy:tick() error('Not implemented') end
 function Strategy:reset() self._finished = false end
 
 function Strategy:finish() self._finished = true end
+
+return Strategy
