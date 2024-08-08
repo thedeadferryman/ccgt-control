@@ -6,7 +6,7 @@ local WindowedList = require('windowed_list')
 
 local function gasTurbineCell(grid, col, row, name)
     local oGrid = grid:setPosition(col, row,
-                                   grid:addChild(gui.layout(1, 1, 1, 1, 1, 2)))
+            grid:addChild(gui.layout(1, 1, 1, 1, 1, 2)))
 
     util.setAutoFit(oGrid, 0, 0)
 
@@ -14,56 +14,56 @@ local function gasTurbineCell(grid, col, row, name)
     oGrid:setRowHeight(2, gui.SIZE_POLICY_RELATIVE, 1)
 
     local nameLbl = oGrid:setPosition(1, 1, oGrid:addChild(
-                                          gui.label(1, 1, 1, 1, 0xffffff, name)))
+            gui.label(1, 1, 1, 1, 0xffffff, name)))
 
     nameLbl:setAlignment(gui.ALIGNMENT_HORIZONTAL_CENTER,
-                         gui.ALIGNMENT_VERTICAL_CENTER)
+            gui.ALIGNMENT_VERTICAL_CENTER)
 
     local gGrid = oGrid:setPosition(1, 2, oGrid:addChild(
-                                        gui.layout(1, 1, 1, 1, 2, 1)))
+            gui.layout(1, 1, 1, 1, 2, 1)))
 
     gGrid:setColumnWidth(1, gui.SIZE_POLICY_RELATIVE, 0.75)
 
     util.setAutoFit(gGrid, 2, 0)
 
     local gChart = gGrid:setPosition(1, 1,
-                                     gGrid:addChild(
-                                         gui.chart(1, 1, 1, 1, 0xffffff,
-                                                   0xffffff, 0xffffff, 0xd2a58e,
-                                                   0.5, 0.5, "t", "*", true, {})))
+            gGrid:addChild(
+                    gui.chart(1, 1, 1, 1, 0xffffff,
+                            0xffffff, 0xffffff, 0xd2a58e,
+                            0.5, 0.5, "t", "*", true, {})))
 
     local gInfoGrid = gGrid:setPosition(2, 1, gGrid:addChild(
-                                            gui.layout(1, 1, 1, 1, 1, 4)))
+            gui.layout(1, 1, 1, 1, 1, 4)))
 
     util.setAutoFit(gInfoGrid, 2, 2)
 
     local gIsEnabled = gInfoGrid:setPosition(1, 1, gInfoGrid:addChild(
-                                                 gui.label(1, 1, 1, 1, 0x00ff00,
-                                                           "DISABLED")))
+            gui.label(1, 1, 1, 1, 0x00ff00,
+                    "DISABLED")))
 
     gIsEnabled:setAlignment(gui.ALIGNMENT_HORIZONTAL_CENTER,
-                            gui.ALIGNMENT_VERTICAL_CENTER)
+            gui.ALIGNMENT_VERTICAL_CENTER)
 
     local gState = gInfoGrid:setPosition(1, 2, gInfoGrid:addChild(
-                                             gui.label(1, 1, 1, 1, 0xff0000,
-                                                       "UNKNOWN")))
+            gui.label(1, 1, 1, 1, 0xff0000,
+                    "UNKNOWN")))
 
     gState:setAlignment(gui.ALIGNMENT_HORIZONTAL_CENTER,
-                        gui.ALIGNMENT_VERTICAL_CENTER)
+            gui.ALIGNMENT_VERTICAL_CENTER)
 
     local gRPM = gInfoGrid:setPosition(1, 3, gInfoGrid:addChild(
-                                           gui.label(1, 1, 1, 1, 0x00ff00,
-                                                     "1204 RPM")))
+            gui.label(1, 1, 1, 1, 0x00ff00,
+                    "1204 RPM")))
 
     gRPM:setAlignment(gui.ALIGNMENT_HORIZONTAL_CENTER,
-                      gui.ALIGNMENT_VERTICAL_CENTER)
+            gui.ALIGNMENT_VERTICAL_CENTER)
 
     local gBurnup = gInfoGrid:setPosition(1, 4, gInfoGrid:addChild(
-                                              gui.label(1, 1, 1, 1, 0xff0000,
-                                                        "NO BURNUP")))
+            gui.label(1, 1, 1, 1, 0xff0000,
+                    "NO BURNUP")))
 
     gBurnup:setAlignment(gui.ALIGNMENT_HORIZONTAL_CENTER,
-                         gui.ALIGNMENT_VERTICAL_CENTER)
+            gui.ALIGNMENT_VERTICAL_CENTER)
 
     return {
         chart = gChart,
@@ -78,7 +78,7 @@ end
 
 local function boilerCell(grid, col, row, name)
     local oGrid = grid:setPosition(col, row,
-                                   grid:addChild(gui.layout(1, 1, 1, 1, 1, 2)))
+            grid:addChild(gui.layout(1, 1, 1, 1, 1, 2)))
 
     util.setAutoFit(oGrid, 0, 0)
 
@@ -86,56 +86,56 @@ local function boilerCell(grid, col, row, name)
     oGrid:setRowHeight(2, gui.SIZE_POLICY_RELATIVE, 1)
 
     local nameLbl = oGrid:setPosition(1, 1, oGrid:addChild(
-                                          gui.label(1, 1, 1, 1, 0xffffff, name)))
+            gui.label(1, 1, 1, 1, 0xffffff, name)))
 
     nameLbl:setAlignment(gui.ALIGNMENT_HORIZONTAL_CENTER,
-                         gui.ALIGNMENT_VERTICAL_CENTER)
+            gui.ALIGNMENT_VERTICAL_CENTER)
 
     local gGrid = oGrid:setPosition(1, 2, oGrid:addChild(
-                                        gui.layout(1, 1, 1, 1, 2, 1)))
+            gui.layout(1, 1, 1, 1, 2, 1)))
 
     gGrid:setColumnWidth(1, gui.SIZE_POLICY_RELATIVE, 0.75)
 
     util.setAutoFit(gGrid, 2, 0)
 
     local gChart = gGrid:setPosition(1, 1,
-                                     gGrid:addChild(
-                                         gui.chart(1, 1, 1, 1, 0xffffff,
-                                                   0xffffff, 0xffffff, 0xd2a58e,
-                                                   0.5, 0.5, "t", "T", true, {})))
+            gGrid:addChild(
+                    gui.chart(1, 1, 1, 1, 0xffffff,
+                            0xffffff, 0xffffff, 0xd2a58e,
+                            0.5, 0.5, "t", "T", true, {})))
 
     local gInfoGrid = gGrid:setPosition(2, 1, gGrid:addChild(
-                                            gui.layout(1, 1, 1, 1, 1, 4)))
+            gui.layout(1, 1, 1, 1, 1, 4)))
 
     util.setAutoFit(gInfoGrid, 2, 2)
 
     local gIsEnabled = gInfoGrid:setPosition(1, 1, gInfoGrid:addChild(
-                                                 gui.label(1, 1, 1, 1, 0x00ff00,
-                                                           "ENABLED")))
+            gui.label(1, 1, 1, 1, 0x00ff00,
+                    "ENABLED")))
 
     gIsEnabled:setAlignment(gui.ALIGNMENT_HORIZONTAL_CENTER,
-                            gui.ALIGNMENT_VERTICAL_CENTER)
+            gui.ALIGNMENT_VERTICAL_CENTER)
 
     local gHeat = gInfoGrid:setPosition(1, 2, gInfoGrid:addChild(
-                                            gui.label(1, 1, 1, 1, 0x00ff00,
-                                                      "12005 T")))
+            gui.label(1, 1, 1, 1, 0x00ff00,
+                    "12005 T")))
 
     gHeat:setAlignment(gui.ALIGNMENT_HORIZONTAL_CENTER,
-                       gui.ALIGNMENT_VERTICAL_CENTER)
+            gui.ALIGNMENT_VERTICAL_CENTER)
 
     local gWater = gInfoGrid:setPosition(1, 3, gInfoGrid:addChild(
-                                             gui.label(1, 1, 1, 1, 0x00ff00,
-                                                       "W: 17500 mB")))
+            gui.label(1, 1, 1, 1, 0x00ff00,
+                    "W: 17500 mB")))
 
     gWater:setAlignment(gui.ALIGNMENT_HORIZONTAL_CENTER,
-                        gui.ALIGNMENT_VERTICAL_CENTER)
+            gui.ALIGNMENT_VERTICAL_CENTER)
 
     local gFuel = gInfoGrid:setPosition(1, 4, gInfoGrid:addChild(
-                                            gui.label(1, 1, 1, 1, 0xff0000,
-                                                      "F: 64 mB")))
+            gui.label(1, 1, 1, 1, 0xff0000,
+                    "F: 64 mB")))
 
     gFuel:setAlignment(gui.ALIGNMENT_HORIZONTAL_CENTER,
-                       gui.ALIGNMENT_VERTICAL_CENTER)
+            gui.ALIGNMENT_VERTICAL_CENTER)
 
     return {
         chart = gChart,
@@ -148,9 +148,9 @@ local function boilerCell(grid, col, row, name)
     }
 end
 
-local function steamTurbineCell(grid, col, row, name)
+local function hxcgCell(grid, col, row, name)
     local oGrid = grid:setPosition(col, row,
-                                   grid:addChild(gui.layout(1, 1, 1, 1, 1, 2)))
+            grid:addChild(gui.layout(1, 1, 1, 1, 1, 2)))
 
     util.setAutoFit(oGrid, 0, 0)
 
@@ -158,59 +158,131 @@ local function steamTurbineCell(grid, col, row, name)
     oGrid:setRowHeight(2, gui.SIZE_POLICY_RELATIVE, 1)
 
     local nameLbl = oGrid:setPosition(1, 1, oGrid:addChild(
-                                          gui.label(1, 1, 1, 1, 0xffffff, name)))
+            gui.label(1, 1, 1, 1, 0xffffff, name)))
 
     nameLbl:setAlignment(gui.ALIGNMENT_HORIZONTAL_CENTER,
-                         gui.ALIGNMENT_VERTICAL_CENTER)
+            gui.ALIGNMENT_VERTICAL_CENTER)
 
     local gGrid = oGrid:setPosition(1, 2, oGrid:addChild(
-                                        gui.layout(1, 1, 1, 1, 2, 1)))
+            gui.layout(1, 1, 1, 1, 2, 1)))
 
     gGrid:setColumnWidth(1, gui.SIZE_POLICY_RELATIVE, 0.75)
 
     util.setAutoFit(gGrid, 2, 0)
 
     local gChart = gGrid:setPosition(1, 1,
-                                     gGrid:addChild(
-                                         gui.chart(1, 1, 1, 1, 0xffffff,
-                                                   0xffffff, 0xffffff, 0xd2a58e,
-                                                   0.5, 0.5, "t", "*", true, {})))
+            gGrid:addChild(
+                    gui.chart(1, 1, 1, 1, 0xffffff,
+                            0xffffff, 0xffffff, 0xd2a58e,
+                            0.5, 0.5, "t", "T", true, {})))
 
     local gInfoGrid = gGrid:setPosition(2, 1, gGrid:addChild(
-                                            gui.layout(1, 1, 1, 1, 1, 3)))
+            gui.layout(1, 1, 1, 1, 1, 4)))
 
     util.setAutoFit(gInfoGrid, 2, 2)
 
     local gIsEnabled = gInfoGrid:setPosition(1, 1, gInfoGrid:addChild(
-                                                 gui.label(1, 1, 1, 1, 0x00ff00,
-                                                           "ENABLED")))
+            gui.label(1, 1, 1, 1, 0x00ff00,
+                    "ENABLED")))
 
     gIsEnabled:setAlignment(gui.ALIGNMENT_HORIZONTAL_CENTER,
-                            gui.ALIGNMENT_VERTICAL_CENTER)
+            gui.ALIGNMENT_VERTICAL_CENTER)
 
-    local gRPM = gInfoGrid:setPosition(1, 2, gInfoGrid:addChild(
-                                           gui.label(1, 1, 1, 1, 0x00ff00,
-                                                     "1561 RPM")))
-
-    gRPM:setAlignment(gui.ALIGNMENT_HORIZONTAL_CENTER,
-                      gui.ALIGNMENT_VERTICAL_CENTER)
-
-    local gSteam = gInfoGrid:setPosition(1, 3, gInfoGrid:addChild(
-                                             gui.label(1, 1, 1, 1, 0xff0000,
-                                                       "9750 mB")))
+    local gSteam = gInfoGrid:setPosition(1, 2, gInfoGrid:addChild(
+            gui.label(1, 1, 1, 1, 0x00ff00,
+                    "12005 T")))
 
     gSteam:setAlignment(gui.ALIGNMENT_HORIZONTAL_CENTER,
-                        gui.ALIGNMENT_VERTICAL_CENTER)
+            gui.ALIGNMENT_VERTICAL_CENTER)
+
+    local gWater = gInfoGrid:setPosition(1, 3, gInfoGrid:addChild(
+            gui.label(1, 1, 1, 1, 0x00ff00,
+                    "W: 17500 mB")))
+
+    gWater:setAlignment(gui.ALIGNMENT_HORIZONTAL_CENTER,
+            gui.ALIGNMENT_VERTICAL_CENTER)
+
+    local gFuel = gInfoGrid:setPosition(1, 4, gInfoGrid:addChild(
+            gui.label(1, 1, 1, 1, 0xff0000,
+                    "F: 64 mB")))
+
+    gFuel:setAlignment(gui.ALIGNMENT_HORIZONTAL_CENTER,
+            gui.ALIGNMENT_VERTICAL_CENTER)
 
     return {
         chart = gChart,
-        fields = {enabled = gIsEnabled, rpm = gRPM, steam = gSteam}
+        fields = {
+            enabled = gIsEnabled,
+            steam = gSteam,
+            water = gWater,
+            fuel = gFuel
+        }
+    }
+end
+
+local function steamTurbineCell(grid, col, row, name)
+    local oGrid = grid:setPosition(col, row,
+            grid:addChild(gui.layout(1, 1, 1, 1, 1, 2)))
+
+    util.setAutoFit(oGrid, 0, 0)
+
+    oGrid:setRowHeight(1, gui.SIZE_POLICY_ABSOLUTE, 1)
+    oGrid:setRowHeight(2, gui.SIZE_POLICY_RELATIVE, 1)
+
+    local nameLbl = oGrid:setPosition(1, 1, oGrid:addChild(
+            gui.label(1, 1, 1, 1, 0xffffff, name)))
+
+    nameLbl:setAlignment(gui.ALIGNMENT_HORIZONTAL_CENTER,
+            gui.ALIGNMENT_VERTICAL_CENTER)
+
+    local gGrid = oGrid:setPosition(1, 2, oGrid:addChild(
+            gui.layout(1, 1, 1, 1, 2, 1)))
+
+    gGrid:setColumnWidth(1, gui.SIZE_POLICY_RELATIVE, 0.75)
+
+    util.setAutoFit(gGrid, 2, 0)
+
+    local gChart = gGrid:setPosition(1, 1,
+            gGrid:addChild(
+                    gui.chart(1, 1, 1, 1, 0xffffff,
+                            0xffffff, 0xffffff, 0xd2a58e,
+                            0.5, 0.5, "t", "*", true, {})))
+
+    local gInfoGrid = gGrid:setPosition(2, 1, gGrid:addChild(
+            gui.layout(1, 1, 1, 1, 1, 3)))
+
+    util.setAutoFit(gInfoGrid, 2, 2)
+
+    local gIsEnabled = gInfoGrid:setPosition(1, 1, gInfoGrid:addChild(
+            gui.label(1, 1, 1, 1, 0x00ff00,
+                    "ENABLED")))
+
+    gIsEnabled:setAlignment(gui.ALIGNMENT_HORIZONTAL_CENTER,
+            gui.ALIGNMENT_VERTICAL_CENTER)
+
+    local gRPM = gInfoGrid:setPosition(1, 2, gInfoGrid:addChild(
+            gui.label(1, 1, 1, 1, 0x00ff00,
+                    "1561 RPM")))
+
+    gRPM:setAlignment(gui.ALIGNMENT_HORIZONTAL_CENTER,
+            gui.ALIGNMENT_VERTICAL_CENTER)
+
+    local gSteam = gInfoGrid:setPosition(1, 3, gInfoGrid:addChild(
+            gui.label(1, 1, 1, 1, 0xff0000,
+                    "9750 mB")))
+
+    gSteam:setAlignment(gui.ALIGNMENT_HORIZONTAL_CENTER,
+            gui.ALIGNMENT_VERTICAL_CENTER)
+
+    return {
+        chart = gChart,
+        fields = { enabled = gIsEnabled, rpm = gRPM, steam = gSteam }
     }
 end
 
 local function fuelStorageCell(grid, col, row, name)
     local oGrid = grid:setPosition(col, row,
-                                   grid:addChild(gui.layout(1, 1, 1, 1, 1, 2)))
+            grid:addChild(gui.layout(1, 1, 1, 1, 1, 2)))
 
     util.setAutoFit(oGrid, 0, 0)
 
@@ -218,46 +290,46 @@ local function fuelStorageCell(grid, col, row, name)
     oGrid:setRowHeight(2, gui.SIZE_POLICY_RELATIVE, 1)
 
     local nameLbl = oGrid:setPosition(1, 1, oGrid:addChild(
-                                          gui.label(1, 1, 1, 1, 0xffffff, name)))
+            gui.label(1, 1, 1, 1, 0xffffff, name)))
 
     nameLbl:setAlignment(gui.ALIGNMENT_HORIZONTAL_CENTER,
-                         gui.ALIGNMENT_VERTICAL_CENTER)
+            gui.ALIGNMENT_VERTICAL_CENTER)
 
     local gGrid = oGrid:setPosition(1, 2, oGrid:addChild(
-                                        gui.layout(1, 1, 1, 1, 2, 1)))
+            gui.layout(1, 1, 1, 1, 2, 1)))
 
     gGrid:setColumnWidth(1, gui.SIZE_POLICY_RELATIVE, 0.75)
 
     util.setAutoFit(gGrid, 2, 0)
 
     local gChart = gGrid:setPosition(1, 1,
-                                     gGrid:addChild(
-                                         gui.chart(1, 1, 1, 1, 0xffffff,
-                                                   0xffffff, 0xffffff, 0xd2a58e,
-                                                   0.5, 0.5, "t", "%", true, {})))
+            gGrid:addChild(
+                    gui.chart(1, 1, 1, 1, 0xffffff,
+                            0xffffff, 0xffffff, 0xd2a58e,
+                            0.5, 0.5, "t", "%", true, {})))
 
     local gInfoGrid = gGrid:setPosition(2, 1, gGrid:addChild(
-                                            gui.layout(1, 1, 1, 1, 1, 4)))
+            gui.layout(1, 1, 1, 1, 1, 4)))
 
     util.setAutoFit(gInfoGrid, 2, 2)
 
     local gIsEjecting = gInfoGrid:setPosition(1, 2, gInfoGrid:addChild(
-                                                  gui.label(1, 1, 1, 1,
-                                                            0x00ff00, "EJECTING")))
+            gui.label(1, 1, 1, 1,
+                    0x00ff00, "EJECTING")))
 
     gIsEjecting:setAlignment(gui.ALIGNMENT_HORIZONTAL_CENTER,
-                             gui.ALIGNMENT_VERTICAL_CENTER)
+            gui.ALIGNMENT_VERTICAL_CENTER)
 
     local gFuelLevel = gInfoGrid:setPosition(1, 3, gInfoGrid:addChild(
-                                                 gui.label(1, 1, 1, 1, 0xff0000,
-                                                           "43 %")))
+            gui.label(1, 1, 1, 1, 0xff0000,
+                    "43 %")))
 
     gFuelLevel:setAlignment(gui.ALIGNMENT_HORIZONTAL_CENTER,
-                            gui.ALIGNMENT_VERTICAL_CENTER)
+            gui.ALIGNMENT_VERTICAL_CENTER)
 
     return {
         chart = gChart,
-        fields = {ejecting = gIsEjecting, fuelLevel = gFuelLevel}
+        fields = { ejecting = gIsEjecting, fuelLevel = gFuelLevel }
     }
 end
 
@@ -265,35 +337,35 @@ end
 
 local function buttonsCell(grid, col, row)
     local btnGrid = grid:setPosition(col, row, grid:addChild(
-                                         gui.layout(1, 1, 1, 1, 3, 1)))
+            gui.layout(1, 1, 1, 1, 3, 1)))
 
     util.setAutoFit(btnGrid, 8, 2)
 
     local startBtn = btnGrid:setPosition(1, 1,
-                                         btnGrid:addChild(
-                                             gui.roundedButton(1, 1, 1, 1,
-                                                               0xcccc66,
-                                                               0x000000,
-                                                               0x7a7a3d,
-                                                               0x000000,
-                                                               "START CORE")))
+            btnGrid:addChild(
+                    gui.roundedButton(1, 1, 1, 1,
+                            0xcccc66,
+                            0x000000,
+                            0x7a7a3d,
+                            0x000000,
+                            "START CORE")))
     local stopBtn = btnGrid:setPosition(2, 1,
-                                        btnGrid:addChild(
-                                            gui.roundedButton(1, 1, 1, 1,
-                                                              0xcc9966,
-                                                              0x000000,
-                                                              0x663333,
-                                                              0x000000,
-                                                              "STOP CORE")))
+            btnGrid:addChild(
+                    gui.roundedButton(1, 1, 1, 1,
+                            0xcc9966,
+                            0x000000,
+                            0x663333,
+                            0x000000,
+                            "STOP CORE")))
 
     local quitBtn = btnGrid:setPosition(3, 1,
-                                        btnGrid:addChild(
-                                            gui.framedButton(1, 1, 1, 1,
-                                                             0xcc9966, 0xcc9966,
-                                                             0x663333, 0x663333,
-                                                             "QUIT DASHBOARD")))
+            btnGrid:addChild(
+                    gui.framedButton(1, 1, 1, 1,
+                            0xcc9966, 0xcc9966,
+                            0x663333, 0x663333,
+                            "QUIT DASHBOARD")))
 
-    return {start = startBtn, stop = stopBtn, quit = quitBtn}
+    return { start = startBtn, stop = stopBtn, quit = quitBtn }
 end
 
 local function MonitorGUI()
@@ -309,7 +381,7 @@ local function MonitorGUI()
     util.setAutoFit(root, 0, 0)
 
     local statGrid = root:setPosition(1, 1, root:addChild(
-                                          gui.layout(1, 1, 1, 1, 2, 3)))
+            gui.layout(1, 1, 1, 1, 2, 3)))
 
     util.setAutoFit(statGrid, 2, 2)
 
@@ -333,7 +405,47 @@ local function MonitorGUI()
         ['FUEL'] = fuel
     }
 
-    return {statCells = stats, buttons = buttons, app = app}
+    return { statCells = stats, buttons = buttons, app = app }
 end
 
-return MonitorGUI
+local function MonitorGUIV2()
+    local app = gui.application()
+
+    app:addChild(gui.panel(1, 1, app.width, app.height, 0x000000))
+
+    local root = app:addChild(gui.layout(1, 1, app.width, app.height, 1, 2))
+
+    root:setRowHeight(1, gui.SIZE_POLICY_RELATIVE, 0.9)
+    root:setRowHeight(2, gui.SIZE_POLICY_RELATIVE, 0.1)
+
+    util.setAutoFit(root, 0, 0)
+
+    local statGrid = root:setPosition(1, 1, root:addChild(
+            gui.layout(1, 1, 1, 1, 2, 3)))
+
+    util.setAutoFit(statGrid, 2, 2)
+
+    local gas1 = gasTurbineCell(statGrid, 1, 1, "GAS-1")
+    local gas2 = gasTurbineCell(statGrid, 2, 1, "GAS-2")
+
+    local hxcg1 = hxcgCell(statGrid, 1, 2, "HXCG-1")
+    local hxcg2 = hxcgCell(statGrid, 2, 2, "HXCG-2")
+
+    local steam = steamTurbineCell(statGrid, 1, 3, "STEAM")
+    local fuel = fuelStorageCell(statGrid, 2, 3, "FUEL")
+
+    local buttons = buttonsCell(root, 1, 2)
+
+    local stats = {
+        ['GAS-1'] = gas1,
+        ['GAS-2'] = gas2,
+        ['HXCG-1'] = hxcg1,
+        ['HXCG-2'] = hxcg2,
+        ['STEAM'] = steam,
+        ['FUEL'] = fuel
+    }
+
+    return { statCells = stats, buttons = buttons, app = app }
+end
+
+return { MonitorGUI = MonitorGUI, MonitorGUIV2 = MonitorGUIV2 }

@@ -15,25 +15,25 @@ function HeatExchanger:__new__(id)
 end
 
 function HeatExchanger:init()
-    self._components.boiler.proxy.enableComputerControl(true)
-    self._components.boiler.proxy.setEnabled(self._isEnabled)
+    self._components.heat_exchanger.proxy.enableComputerControl(true)
+    self._components.heat_exchanger.proxy.setEnabled(self._isEnabled)
 end
 
 function HeatExchanger:getState()
-    local boiler = self._components.boiler.proxy
+    local heat_exchanger = self._components.heat_exchanger.proxy
 
     return {
         enabled = self._isEnabled,
-        fuelLevel = boiler.getSecondInputTankInfo(),
-        waterLevel = boiler.getFirstInputTankInfo(),
-        steamLevel = boiler.getFirstOutputTankInfo()
+        fuelLevel = heat_exchanger.getSecondInputTankInfo(),
+        waterLevel = heat_exchanger.getFirstInputTankInfo(),
+        steamLevel = heat_exchanger.getFirstOutputTankInfo()
     }
 end
 
 function HeatExchanger:toggleEnabled(value)
     self._isEnabled = value and true or false
 
-    self._components.boiler.proxy.setEnabled(self._isEnabled)
+    self._components.heat_exchanger.proxy.setEnabled(self._isEnabled)
 end
 
 return HeatExchanger

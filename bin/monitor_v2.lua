@@ -1,5 +1,5 @@
-local MonitorGUI = require('ui/monitor')
-local CCGT = require('model/ccgt')
+local MonitorGUI = require('ui/monitor').MonitorGUIV2
+local CCGT = require('model/ccgt_v2')
 local ser = require('serialization')
 local event = require('event')
 local WindowedList = require('windowed_list')

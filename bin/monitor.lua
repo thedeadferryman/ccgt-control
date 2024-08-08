@@ -1,4 +1,4 @@
-local MonitorGUI = require('ui/monitor')
+local MonitorGUI = require('ui/monitor').MonitorGUI
 local CCGT = require('model/ccgt')
 local ser = require('serialization')
 local event = require('event')
@@ -11,7 +11,7 @@ local function loadProfile(filename)
     local fd = io.open(filename, 'r')
 
     assert(fd, "Cannot load profile from '" .. filename ..
-               "'. Specify another profile or run 'bin/configure' to create one.")
+            "'. Specify another profile or run 'bin/configure' to create one.")
 
     local pfData = fd:read(1000000)
 
@@ -47,16 +47,16 @@ local function addChartValue(chart, value)
 
     wnd:push(value)
 
-    local newValues = {{0, 0}} -- Force chart range
+    local newValues = { { 0, 0 } } -- Force chart range
 
-    for i = 1, #wnd do table.insert(newValues, {i, wnd[i]}) end
+    for i = 1, #wnd do table.insert(newValues, { i, wnd[i] }) end
 
     chart.values = newValues
 
 end
 
 local function gasStateToDisplayed(state)
-    local res = {color = 0xff0000}
+    local res = { color = 0xff0000 }
 
     if state == GasTurbine.STATES.UNKNOWN then
         res.text = 'UNKNOWN'
@@ -92,7 +92,7 @@ local function updateGasData(gasCell, model)
 
     gasCell.fields.rpm.text = tostring(state.rotorSpeed) .. " RPM"
     gasCell.fields.rpm.colors.text = (state.rotorSpeed > 900) and 0x00ff00 or
-                                         0xff0000
+            0xff0000
 
     gasCell.fields.burnup.text = state.burnup and 'BURNUP' or 'NO BURNUP'
     gasCell.fields.burnup.colors.text = state.burnup and 0x00ff00 or 0xff0000
@@ -108,17 +108,17 @@ local function updateBoilerData(boilCell, model)
 
     boilCell.fields.heat.text = tostring(state.heat) .. ' T'
     boilCell.fields.heat.colors.text = (state.heat > 6000) and 0x00ff00 or
-                                           0xff0000
+            0xff0000
 
     boilCell.fields.water.text = tostring(state.waterLevel.amount) .. ' mB'
     boilCell.fields.water.colors.text = (state.waterLevel.amount >
-                                            state.waterLevel.capacity / 2) and
-                                            0x00ff00 or 0xff0000
+            state.waterLevel.capacity / 2) and
+            0x00ff00 or 0xff0000
 
     boilCell.fields.fuel.text = tostring(state.fuelLevel.amount) .. ' mB'
     boilCell.fields.fuel.colors.text = (state.fuelLevel.amount >
-                                           state.waterLevel.capacity / 2) and
-                                           0x00ff00 or 0xff0000
+            state.waterLevel.capacity / 2) and
+            0x00ff00 or 0xff0000
 end
 
 local function updateSteamData(steamCell, model)
@@ -127,16 +127,14 @@ local function updateSteamData(steamCell, model)
     addChartValue(steamCell.chart, state.speed)
 
     steamCell.fields.enabled.text = state.enabled and 'ENABLED' or 'DISABLED'
-    steamCell.fields.enabled.colors.text =
-        state.enabled and 0x00ff00 or 0xff0000
+    steamCell.fields.enabled.colors.text = state.enabled and 0x00ff00 or 0xff0000
 
     steamCell.fields.rpm.text = tostring(state.speed) .. ' RPM'
     steamCell.fields.rpm.colors.text = (state.speed > 900) and 0x00ff00 or
-                                           0xff0000
+            0xff0000
 
     steamCell.fields.steam.text = tostring(state.steamLevel.amount) .. ' mB'
-    steamCell.fields.steam.colors.text =
-        (state.steamLevel.amount > state.steamLevel.capacity / 2) and 0x00ff00 or
+    steamCell.fields.steam.colors.text = (state.steamLevel.amount > state.steamLevel.capacity / 2) and 0x00ff00 or
             0xff0000
 end
 
@@ -148,13 +146,11 @@ local function updateFuelData(fuelCell, model)
     addChartValue(fuelCell.chart, level)
 
     fuelCell.fields.ejecting.text = state.isEjecting and 'EJECTING' or
-                                        'NO EJECTING'
-    fuelCell.fields.ejecting.colors.text =
-        state.isEjecting and 0x00ff00 or 0xff0000
+            'NO EJECTING'
+    fuelCell.fields.ejecting.colors.text = state.isEjecting and 0x00ff00 or 0xff0000
 
     fuelCell.fields.fuelLevel.text = tostring(level) .. ' %'
-    fuelCell.fields.fuelLevel.colors.text =
-        (level > 50) and 0x00ff00 or 0xff0000
+    fuelCell.fields.fuelLevel.colors.text = (level > 50) and 0x00ff00 or 0xff0000
 end
 
 local function updateUiData(statCells, hmodel)
@@ -223,7 +219,7 @@ local function runMonitor(args)
     gui.app:start()
 end
 
-local args = {...}
+local args = { ... }
 
 if (args[1] == '--help' or args[1] == '-h') then
     print('Usage: bin/monitor [profile]')
